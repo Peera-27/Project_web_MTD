@@ -1,19 +1,39 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
 
+header {
+    flex-shrink: 0;
+    /* ป้องกันการย่อขนาดของ header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+    background: rgba(219, 219, 219, 0.514);
+}
+
+header img {
+    height: 50px;
 }
 
 body {
-    background-color: rgb(79, 77, 77);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/Pictures/Heanangcat.webp');
+    background-size: cover;
+
+    font-family: 'Kanit', sans-serif;
+    background-position: center;
+    color: #FFFFFF;
+    line-height: 1.6;
 }
 
 nav {
     display: flex;
 
-    justify-content: space-between;
     padding: 10px;
-    background-color: white;
+    justify-content: flex-end;
+
 }
 
 .pic {
@@ -22,18 +42,241 @@ nav {
 
 .menu {
     display: flex;
+    flex-wrap: wrap;
     list-style: none;
+    gap: 20px;
+    justify-content: center;
+    font-size: 1rem;
 
 }
 
 .menu li {
 
-    margin-left: 40px;
     margin-top: 20px;
+
 }
 
 .menu li a {
+
     font-size: x-large;
     text-decoration: none;
-    color: black;
+    color: #FFF8DC;
+
+}
+
+.isnotbutton {
+    margin-right: 10px;
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 1.5rem;
+    background: #3d3a4e;
+    background-size: 400%;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    min-width: 100px;
+    /* กำหนดความกว้างขั้นต่ำ */
+
+
+}
+
+.isnotbutton::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(82.3deg,
+            rgb(93, 233, 168) 10.8%,
+            rgb(88, 190, 238) 94.3%);
+    transition: all 0.475s;
+}
+
+
+.button {
+    margin-right: 10px;
+    position: relative;
+    overflow: hidden;
+    height: 3rem;
+    padding: 0 2rem;
+    border-radius: 1.5rem;
+    background: #3b384b;
+    background-size: 400%;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    min-width: 100px;
+    /* กำหนดความกว้างขั้นต่ำ */
+
+}
+
+.isnotbutton:hover::before,
+.button:hover::before {
+    transform: scaleX(1);
+}
+
+.isnotbutton-content,
+.button-content {
+    position: relative;
+    z-index: 1;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(82.3deg,
+            rgba(150, 93, 233, 1) 10.8%,
+            rgba(99, 88, 238, 1) 94.3%);
+    transition: all 0.475s;
+}
+
+.title {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.description {
+    color: aliceblue;
+    font-size: 20px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.divider {
+    color: aliceblue;
+    border: 1px solid white;
+    margin: 20px 0;
+}
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+figcaption {
+    text-align: center;
+    margin-top: 8px;
+}
+
+figure {
+    text-align: center;
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+    display: inline-block;
+}
+
+figcaption {
+    text-align: center;
+    margin-top: 8px;
+}
+
+footer {
+
+    position: absolute;
+    /* ทำให้ footer อยู่ติดด้านล่างตลอด */
+    /* bottom: 10%; */
+    /* ชิดด้านล่างของ viewport */
+    /* left: 0; */
+    /* ชิดขอบซ้าย */
+    width: 100%;
+    /* ขยาย footer ให้เต็มความกว้าง */
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    padding: 10px 10px;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 10;
+    /* ให้ footer อยู่ด้านบนสุด */
+}
+
+footer img {
+    height: 50px;
+    justify-content: start;
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 16px;
+    color: #000000a1;
+    text-align: center;
+}
+
+
+
+.info {
+    margin-left: 50px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .menu {
+        font-size: 0.9rem;
+        gap: 15px;
+    }
+
+    .isnotbutton,
+    .button {
+        height: 2.5rem;
+        padding: 0 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        /* กำหนดความกว้างเต็ม */
+    }
+
+    .isnotbutton,
+    .button {
+        width: 80%;
+        /* ให้ปุ่มใช้ 80% ของหน้าจอ */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu {
+        font-size: 0.8rem;
+    }
+
+    .isnotbutton,
+    .button {
+        height: 2rem;
+        padding: 0 1rem;
+        width: 90%;
+        /* ให้ปุ่มใช้ 90% ของหน้าจอ */
+    }
 }
